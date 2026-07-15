@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(php artisan tinker '--execute= *)",
+      "PowerShell(\\(Get-Content \"c:\\\\xampp\\\\htdocs\\\\coifclub\\\\coifclub\\\\resources\\\\lang\\\\en\\\\messages.php\" | Measure-Object -Line\\).Lines; \\(Get-Content \"c:\\\\xampp\\\\htdocs\\\\coifclub\\\\coifclub\\\\resources\\\\lang\\\\fr\\\\messages.php\" | Measure-Object -Line\\).Lines; \\(Get-Content \"c:\\\\xampp\\\\htdocs\\\\coifclub\\\\coifclub\\\\resources\\\\lang\\\\es\\\\messages.php\" | Measure-Object -Line\\).Lines)",
+      "Bash(python -c ' *)",
+      "Bash(grep -v \"@\\\\|class=\\\\|style=\\\\|href=\\\\|//\")",
+      "Bash(php artisan *)"
+    ]
+  }
+}

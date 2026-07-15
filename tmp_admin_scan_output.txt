@@ -1,0 +1,116 @@
+resources\views\admin\calendar.blade.php:3: @section('title', 'Calendrier')
+resources\views\admin\calendar.blade.php:4: @section('page-title', 'Calendrier du salon')
+resources\views\admin\calendar.blade.php:438: Calendrier & Rendez-vous
+resources\views\admin\calendar.blade.php:471: Réservations aujourd’hui
+resources\views\admin\calendar.blade.php:499: Employés
+resources\views\admin\categories\create.blade.php:386: Services structurés
+resources\views\admin\categories\create.blade.php:500: Retour
+resources\views\admin\categories\edit.blade.php:418: Gestion des services
+resources\views\admin\categories\edit.blade.php:552: Retour
+resources\views\admin\categories\index.blade.php:3: @section('title', 'Catégories')
+resources\views\admin\categories\index.blade.php:4: @section('page-title', 'Gestion des catégories')
+resources\views\admin\categories\index.blade.php:450: Gestion des catégories
+resources\views\admin\categories\index.blade.php:475: Catégories
+resources\views\admin\categories\index.blade.php:483: Catégories disponibles
+resources\views\admin\categories\index.blade.php:493: Services
+resources\views\admin\categories\index.blade.php:501: Services associés
+resources\views\admin\categories\index.blade.php:550: Catégories du salon
+resources\views\admin\categories\index.blade.php:578: <th>Services</th>
+resources\views\admin\clients-edit.blade.php:116: Retour
+resources\views\admin\clients-print.blade.php:226: <h1>{{ $salon->name ?? 'Marol Hair' }}</h1>
+resources\views\admin\clients-print.blade.php:282: <span>Réservations</span>
+resources\views\admin\clients-print.blade.php:312: Retour
+resources\views\admin\clients.blade.php:3: @section('title', 'Gestion des Clients')
+resources\views\admin\clients.blade.php:452: Gestion des Clients
+resources\views\admin\clients.blade.php:463: Retour Dashboard
+resources\views\admin\clients.blade.php:506: Réservations effectuées
+resources\views\admin\clients.blade.php:526: Clients visibles sur cette page
+resources\views\admin\clients.blade.php:541: Clients enregistrés
+resources\views\admin\clients.blade.php:584: Réservations
+resources\views\admin\dashboard.blade.php:4: @section('page-subtitle', 'Bienvenue dans le centre de contrôle Marol Hair Brainding')
+resources\views\admin\dashboard.blade.php:127: <div class="stat-label">Réservations aujourd'hui</div>
+resources\views\admin\dashboard.blade.php:139: <div class="stat-sub">Paiements complétés</div>
+resources\views\admin\dashboard.blade.php:174: <div class="stat-label">Promotions actives</div>
+resources\views\admin\dashboard.blade.php:185: <div class="stat-label">Remboursements accordés</div>
+resources\views\admin\dashboard.blade.php:209: <span class="card-title">📅 Réservations récentes</span>
+resources\views\admin\dashboard.blade.php:241: Aucune réservation récente
+resources\views\admin\dashboard.blade.php:255: <span class="card-title">Services populaires</span>
+resources\views\admin\dashboard.blade.php:259: @forelse($topServices ?? [] as $i => $s)
+resources\views\admin\dashboard.blade.php:643: Réservations récentes
+resources\views\admin\dashboard.blade.php:696: <div>Aucune réservation récente</div>
+resources\views\admin\dashboard.blade.php:721: Services populaires
+resources\views\admin\dashboard.blade.php:729: @forelse($topServices ?? [] as $i => $s)
+resources\views\admin\dashboard.blade.php:882: @forelse($topClients ?? [] as $client)
+resources\views\admin\employees\create.blade.php:450: Retour à la liste
+resources\views\admin\employees\create.blade.php:662: Services et spécialités
+resources\views\admin\employees\edit.blade.php:528: Retour
+resources\views\admin\employees\edit.blade.php:716: Services et spécialités
+resources\views\admin\employees\index.blade.php:3: @section('title', 'Gestion des employés')
+resources\views\admin\employees\index.blade.php:4: @section('page-title','Gestion des employés')
+resources\views\admin\employees\index.blade.php:405: Gestion des employés
+resources\views\admin\heures-ouverture.blade.php:3: @section('title', 'Horaires')
+resources\views\admin\heures-ouverture.blade.php:379: Gestion des Horaires
+resources\views\admin\index.blade.php:3: @section('title', 'Salons')
+resources\views\admin\index.blade.php:5: @section('page-title', 'Gestion des salons')
+resources\views\admin\info-salon.blade.php:2: @section('title', 'Info Salon')
+resources\views\admin\info-salon.blade.php:12: <h5>{{ $salon->nom ?? 'Salon Marol Hair' }}</h5>
+resources\views\admin\info-salon.blade.php:34: @section('title', 'Info Salon')
+resources\views\admin\info-salon.blade.php:279: {{ $salon->name ?? 'Salon Marol Hair' }}
+resources\views\admin\inventaire.blade.php:3: @section('title', 'Inventaire')
+resources\views\admin\inventaire.blade.php:4: @section('page-title', 'Inventaire des prestations')
+resources\views\admin\inventaire.blade.php:427: Inventaire des prestations
+resources\views\admin\inventaire.blade.php:480: Services actifs
+resources\views\admin\orders\index.blade.php:291: Gestion des Commandes
+resources\views\admin\orders\show.blade.php:265: Retour
+resources\views\admin\payments\index.blade.php:3: @section('title','Paiements')
+resources\views\admin\payments\index.blade.php:291: Paiements
+resources\views\admin\personnalisation.blade.php:3: @section('title', 'Personnalisation')
+resources\views\admin\personnalisation.blade.php:4: @section('page-title', 'Personnalisation du salon')
+resources\views\admin\personnalisation.blade.php:368: Personnalisation & Identité
+resources\views\admin\products\create.blade.php:341: Retour à la liste
+resources\views\admin\products\edit.blade.php:339: Retour à la liste
+resources\views\admin\products\index.blade.php:3: @section('title', 'Boutique - Produits')
+resources\views\admin\products\index.blade.php:347: Gestion des produits
+resources\views\admin\rapports.blade.php:2: @section('title', 'Rapports')
+resources\views\admin\rapports.blade.php:3: @section('page-title', 'Rapports et analytics')
+resources\views\admin\rapports.blade.php:8: <h3>Rapports</h3>
+resources\views\admin\rapports.blade.php:24: <h5>Paiements réussis</h5>
+resources\views\admin\rapports.blade.php:49: @section('title', 'Rapports')
+resources\views\admin\rapports.blade.php:50: @section('page-title', 'Rapports & Analytics')
+resources\views\admin\rapports.blade.php:451: Dashboard Analytics
+resources\views\admin\rapports.blade.php:455: Rapports & Performances
+resources\views\admin\rapports.blade.php:503: Réservations
+resources\views\admin\rapports.blade.php:511: Réservations actives
+resources\views\admin\rapports.blade.php:526: Paiements
+resources\views\admin\rapports.blade.php:539: Paiements validés
+resources\views\admin\rapports.blade.php:549: Clients VIP
+resources\views\admin\rapports.blade.php:553: {{ $vipClients ?? 0 }}
+resources\views\admin\rapports.blade.php:557: Clients fidèles
+resources\views\admin\reservations\index.blade.php:3: @section('title', 'Réservations')
+resources\views\admin\reservations\index.blade.php:4: @section('page-title', 'Gestion des réservations')
+resources\views\admin\reservations\index.blade.php:415: <h1>Réservations</h1>
+resources\views\admin\reservations\index.blade.php:416: <p>Gestion des demandes clients</p>
+resources\views\admin\reservations\index.blade.php:566: <h3>Aucune réservation</h3>
+resources\views\admin\reservations.blade.php:2: @section('title', 'Réservations')
+resources\views\admin\reservations.blade.php:678: <h1>Réservations</h1>
+resources\views\admin\reservations.blade.php:867: <h3>Aucune réservation trouvée</h3>
+resources\views\admin\salons\create.blade.php:612: Horaires d’ouverture
+resources\views\admin\salons\create.blade.php:664: Retour
+resources\views\admin\salons.blade.php:3: @section('title', 'Salons')
+resources\views\admin\salons.blade.php:4: @section('page-title', 'Gestion des salons')
+resources\views\admin\salons.blade.php:575: Gestion des salons
+resources\views\admin\salons.blade.php:656: Salons actuellement actifs
+resources\views\admin\salons.blade.php:680: Salons momentanément inactifs
+resources\views\admin\services\edit.blade.php:208: <!-- Personnalisation -->
+resources\views\admin\services\edit.blade.php:210: <h4><i class="fa-solid fa-palette"></i> Personnalisation</h4>
+resources\views\admin\services\index.blade.php:3: @section('title', 'Services')
+resources\views\admin\services\index.blade.php:459: <h1>Services de coiffure</h1>
+resources\views\admin\services\index.blade.php:484: <div class="stat-label">Salons</div>
+resources\views\admin\services\index.blade.php:491: <div class="stat-label">Services actifs</div>
+resources\views\admin\services\show.blade.php:252: <i class="fa-solid fa-arrow-left"></i> Retour à l'inventaire
+resources\views\admin\services.blade.php:2: @section('title', 'Gestion des prestations')
+resources\views\admin\users\create.blade.php:450: Retour à la liste
+resources\views\admin\users\edit.blade.php:462: Retour à la liste
+resources\views\admin\users\index.blade.php:3: @section('title', 'Utilisateurs')
+resources\views\admin\users\index.blade.php:4: @section('page-title', 'Gestion des utilisateurs')
+resources\views\admin\users\index.blade.php:438: Gestion des utilisateurs

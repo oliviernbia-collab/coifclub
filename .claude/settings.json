@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"c:\\\\xampp\\\\htdocs\\\\coifclub\\\\coifclub\" -Directory)",
+      "Bash(Select-Object Name)",
+      "Bash(Get-ChildItem -Path \"c:\\\\xampp\\\\htdocs\\\\coifclub\\\\coifclub\\\\resources\\\\views\\\\admin\" -Recurse -File)",
+      "Bash(Select-Object FullName)"
+    ]
+  }
+}
