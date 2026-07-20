@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', 'Offres du Mois')
+@section('title', 'Offres du Mois — Marol Hair Braiding')
+@section('meta_description', __('messages.lp_promo_sub'))
 
 @section('content')
 

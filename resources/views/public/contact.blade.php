@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', __('messages.contact'))
+@section('title', __('messages.contact') . ' — ' . __('messages.brand_name'))
+@section('meta_description', __('messages.contact_description'))
 
 @push('styles')
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400;1,600;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -467,6 +468,82 @@ textarea.cp-input {
     .cp-map-info { padding: 24px 20px; }
 }
 
+/* ── EDIT CONTACT INFO (admin) ────────── */
+.cp-edit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(233,30,140,.3);
+    background: rgba(233,30,140,.1);
+    color: #e91e8c;
+    font-size: .74rem;
+    font-weight: 700;
+    letter-spacing: .02em;
+    cursor: pointer;
+    transition: .2s;
+    white-space: nowrap;
+}
+
+.cp-edit-btn:hover {
+    background: rgba(233,30,140,.2);
+    color: #ff6ab4;
+}
+
+#editContactModal .modal-content {
+    background: #160d2a;
+    border: 1px solid rgba(233,30,140,.2);
+    border-radius: 20px;
+    color: #fff;
+}
+
+#editContactModal .modal-header {
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    padding: 22px 26px 18px;
+}
+
+#editContactModal .modal-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#editContactModal .modal-title i { color: #e91e8c; }
+
+#editContactModal .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+    opacity: .6;
+}
+
+#editContactModal .modal-body { padding: 24px 26px; }
+
+#editContactModal .modal-footer {
+    border-top: 1px solid rgba(255,255,255,.08);
+    padding: 18px 26px 22px;
+}
+
+#editContactModal .cp-btn-cancel {
+    background: transparent;
+    border: 1.5px solid rgba(255,255,255,.15);
+    color: rgba(255,255,255,.7);
+    padding: 11px 22px;
+    border-radius: 12px;
+    font-size: .88rem;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: .2s;
+}
+
+#editContactModal .cp-btn-cancel:hover {
+    border-color: rgba(255,255,255,.3);
+    color: #fff;
+}
+
 </style>
 @endpush
 
@@ -501,9 +578,17 @@ textarea.cp-input {
 
         {{-- ─ Contact Information ─ --}}
         <div class="cp-card">
-            <div class="cp-card-title">
-                <i class="fa-solid fa-circle-info"></i>
-                {{ __('messages.contact_information') }}
+            <div class="cp-card-title" style="justify-content:space-between;">
+                <span><i class="fa-solid fa-circle-info"></i> {{ __('messages.contact_information') }}</span>
+
+                @auth
+                    @if(auth()->user()->isAdmin() || auth()->user()->isSuperAdmin())
+                        <button type="button" class="cp-edit-btn" data-bs-toggle="modal" data-bs-target="#editContactModal">
+                            <i class="fa-solid fa-pen"></i>
+                            {{ __('messages.edit_contact_info') }}
+                        </button>
+                    @endif
+                @endauth
             </div>
 
             <div class="cp-info-list">
@@ -511,7 +596,7 @@ textarea.cp-input {
                     <div class="cp-info-icon"><i class="fa-solid fa-phone"></i></div>
                     <div>
                         <div class="cp-info-label">{{ __('messages.phone') }}</div>
-                        <div class="cp-info-value">301-219-4507 / 240-729-0623</div>
+                        <div class="cp-info-value">{{ $contactInfo->phone }}</div>
                     </div>
                 </div>
 
@@ -519,7 +604,7 @@ textarea.cp-input {
                     <div class="cp-info-icon"><i class="fa-solid fa-envelope"></i></div>
                     <div>
                         <div class="cp-info-label">{{ __('messages.email') }}</div>
-                        <div class="cp-info-value">info@marolhairbraiding.com</div>
+                        <div class="cp-info-value">{{ $contactInfo->email }}</div>
                     </div>
                 </div>
 
@@ -527,7 +612,7 @@ textarea.cp-input {
                     <div class="cp-info-icon"><i class="fa-solid fa-location-dot"></i></div>
                     <div>
                         <div class="cp-info-label">{{ __('messages.address') }}</div>
-                        <div class="cp-info-value">1545 W 71st Street,<br>Chicago, IL 60636</div>
+                        <div class="cp-info-value">{!! nl2br(e($contactInfo->address)) !!}</div>
                     </div>
                 </div>
 
@@ -692,5 +777,80 @@ textarea.cp-input {
     </div>
 </div>
 
+@auth
+    @if(auth()->user()->isAdmin() || auth()->user()->isSuperAdmin())
+        {{-- ── Modal : modifier les informations de contact ── --}}
+        <div class="modal fade" id="editContactModal" tabindex="-1" aria-labelledby="editContactModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <form method="POST" action="{{ route('admin.contact-settings.update') }}">
+                        @csrf
+                        @method('PUT')
+
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editContactModalLabel">
+                                <i class="fa-solid fa-pen"></i>
+                                {{ __('messages.edit_contact_info') }}
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="cp-form-group">
+                                <label class="cp-label">{{ __('messages.phone') }}</label>
+                                <input type="text" name="phone" class="cp-input"
+                                       value="{{ old('phone', $contactInfo->phone) }}"
+                                       placeholder="{{ __('messages.phone_placeholder') }}">
+                            </div>
+
+                            <div class="cp-form-group">
+                                <label class="cp-label">{{ __('messages.email') }}</label>
+                                <input type="email" name="email" class="cp-input"
+                                       value="{{ old('email', $contactInfo->email) }}"
+                                       placeholder="{{ __('messages.email_placeholder') }}">
+                            </div>
+
+                            <div class="cp-form-group" style="margin-bottom:0;">
+                                <label class="cp-label">{{ __('messages.address') }}</label>
+                                <textarea name="address" class="cp-input" style="min-height:80px;"
+                                          placeholder="{{ __('messages.address') }}">{{ old('address', $contactInfo->address) }}</textarea>
+                            </div>
+
+                            @if($errors->any() && old('address') !== null)
+                                <div class="cp-alert error" style="margin-top:16px;">
+                                    <i class="fa-solid fa-triangle-exclamation" style="font-size:16px;flex-shrink:0;margin-top:2px;"></i>
+                                    <ul style="margin:0;padding-left:2px;list-style:none;">
+                                        @foreach($errors->all() as $err)
+                                            <li>{{ $err }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="cp-btn-cancel" data-bs-dismiss="modal">{{ __('messages.btn_cancel') }}</button>
+                            <button type="submit" class="cp-btn-send" style="width:auto;margin-top:0;">
+                                <i class="fa-solid fa-check"></i>
+                                {{ __('messages.save_changes') }}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    @endif
+@endauth
+
 </div>
 @endsection
+
+@if($errors->any() && old('address') !== null)
+    @push('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new bootstrap.Modal(document.getElementById('editContactModal')).show();
+        });
+    </script>
+    @endpush
+@endif

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Marol Hair Braiding — Premium Salon Chicago')
+@section('meta_description', __('messages.seo_home_description'))
 
 @section('content')
 

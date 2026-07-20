@@ -1,6 +1,10 @@
 @extends('layouts.home')
 
 @section('title', ($service->name ?? $service->nom ?? 'Service') . ' — Marol Hair Braiding')
+@section('meta_description', \Illuminate\Support\Str::limit(strip_tags($service->description ?? __('messages.seo_default_description')), 160))
+@if($service->image)
+@section('og_image', asset('storage/' . $service->image))
+@endif
 
 @push('styles')
 <style>

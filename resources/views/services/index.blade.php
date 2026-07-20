@@ -1,6 +1,7 @@
 @extends('layouts.home')
 
 @section('title', 'Our Braiding Styles — Marol Hair Braiding')
+@section('meta_description', __('messages.svc_hero_text'))
 
 @push('styles')
 <style>

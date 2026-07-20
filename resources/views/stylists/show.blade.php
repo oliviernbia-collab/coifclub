@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('title', ($stylist->user->name ?? 'Coiffeuse') . ' — Services')
+@section('meta_description', \Illuminate\Support\Str::limit(strip_tags($stylist->bio ?? __('messages.employee_default_bio')), 160))
+@if($stylist->photo)
+@section('og_image', asset('storage/' . $stylist->photo))
+@endif
 
 @section('content')
 

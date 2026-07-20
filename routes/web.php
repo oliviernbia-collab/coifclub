@@ -70,7 +70,16 @@ use App\Http\Controllers\LegalController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\WaitingListController;
+use App\Http\Controllers\SeoController;
 
+/*
+|─────────────────────────────────────────────────────────────────────────────
+| 0. SEO (robots.txt, sitemap.xml)
+|─────────────────────────────────────────────────────────────────────────────
+*/
+
+Route::get('/robots.txt',  [SeoController::class, 'robots'])->name('robots');
+Route::get('/sitemap.xml', [SeoController::class, 'sitemap'])->name('sitemap');
 
 /*
 |─────────────────────────────────────────────────────────────────────────────
@@ -87,6 +96,12 @@ Route::middleware('localize')->group(function () {
 
     Route::get('/register',  [AuthController::class, 'showRegister'])->name('register');
     Route::post('/register', [AuthController::class, 'register'])->name('register.post')->middleware('throttle:10,1');
+
+    Route::get('/forgot-password',  [AuthController::class, 'showForgotPassword'])->name('password.request');
+    Route::post('/forgot-password', [AuthController::class, 'sendResetLink'])->name('password.email')->middleware('throttle:5,1');
+
+    Route::get('/reset-password/{token}', [AuthController::class, 'showResetPassword'])->name('password.reset');
+    Route::post('/reset-password', [AuthController::class, 'resetPassword'])->name('password.update')->middleware('throttle:5,1');
 
     });
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
@@ -323,12 +338,13 @@ Route::prefix('admin')
         // Paramètres du salon
         Route::get('/activity-logs',     [AdminController::class, 'activityLogs'])->name('logs');
         Route::get('/calendar',          [AdminController::class, 'calendar'])->name('calendar');
-        Route::get('/info-salon',        [AdminController::class, 'infoSalon'])->name('infoSalon');
         Route::get('/heures-ouverture',  [AdminController::class, 'openingHours'])->name('heuresOuverture');
         Route::put('/heures-ouverture',  [AdminController::class, 'updateOpeningHours'])->name('heuresOuverture.update');
-        Route::get('/personnalisation',  [AdminController::class, 'customization'])->name('personnalisation');
+        Route::get('/parametres',        [AdminController::class, 'settings'])->name('settings');
         Route::put('/personnalisation/logo', [AdminController::class, 'updateBranding'])->name('personnalisation.update');
         Route::put('/personnalisation/branding', [AdminController::class, 'updateBranding'])->name('personnalisation.branding');
+
+        Route::put('/contact-settings', [AdminController::class, 'updateContactSettings'])->name('contact-settings.update');
 
 
     // Clients

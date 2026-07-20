@@ -323,7 +323,7 @@ class AdminController extends Controller
         $salon->update($validated);
 
         return redirect()
-            ->route('admin.infoSalon')
+            ->route('admin.settings')
             ->with('success', 'Informations du salon mises à jour avec succès.');
     }
 
@@ -556,13 +556,13 @@ class AdminController extends Controller
     }
 
     // ─────────────────────────────
-    // 🏠 INFO SALON
+    // ⚙️ PARAMÈTRES (info salon + personnalisation)
     // ─────────────────────────────
-    public function infoSalon()
+    public function settings()
     {
         $salon = Salon::first();
 
-        return view('admin.info-salon', compact('salon'));
+        return view('admin.settings', compact('salon'));
     }
 
     // ─────────────────────────────
@@ -622,12 +622,6 @@ class AdminController extends Controller
     // ─────────────────────────────
     // 🎨 PERSONNALISATION
     // ─────────────────────────────
-    public function customization()
-    {
-        $salon = Salon::first();
-        return view('admin.personnalisation', compact('salon'));
-    }
-
     public function updateBranding(Request $request)
     {
         $validated = $request->validate([
@@ -649,6 +643,20 @@ class AdminController extends Controller
         $salon->update($validated);
 
         return back()->with('success', 'Informations du salon mises à jour avec succès.');
+    }
+
+    public function updateContactSettings(Request $request)
+    {
+        $validated = $request->validate([
+            'phone'   => 'nullable|string|max:255',
+            'email'   => 'nullable|email|max:255',
+            'address' => 'nullable|string|max:255',
+        ]);
+
+        $salon = Salon::first() ?? abort(404, 'Salon not found');
+        $salon->update($validated);
+
+        return back()->with('success', __('messages.contact_info_updated'));
     }
 
     // ─────────────────────────────

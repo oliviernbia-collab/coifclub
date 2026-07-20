@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Notre Équipe')
+@section('meta_description', __('messages.team_hero_text'))
 
 @section('content')
 

@@ -927,10 +927,6 @@ body { background: #0e0a1c !important; color: rgba(255,255,255,.88) !important; 
            class="drawer-nav-link {{ request()->routeIs('admin.calendar') ? 'active' : '' }}">
             <i class="bi bi-calendar3"></i> {{ __('messages.calendar') }}
         </a>
-        <a href="{{ route('admin.infoSalon') }}"
-           class="drawer-nav-link {{ request()->routeIs('admin.infoSalon') ? 'active' : '' }}">
-            <i class="bi bi-shop-window"></i> {{ __('messages.salon_info') }}
-        </a>
         <a href="{{ route('admin.heuresOuverture') }}"
            class="drawer-nav-link {{ request()->routeIs('admin.heuresOuverture') ? 'active' : '' }}">
             <i class="bi bi-clock-history"></i> {{ __('messages.hours') }}
@@ -939,9 +935,9 @@ body { background: #0e0a1c !important; color: rgba(255,255,255,.88) !important; 
            class="drawer-nav-link {{ request()->routeIs('admin.inventaire') ? 'active' : '' }}">
             <i class="bi bi-box-seam"></i> {{ __('messages.inventory') }}
         </a>
-        <a href="{{ route('admin.personnalisation') }}"
-           class="drawer-nav-link {{ request()->routeIs('admin.personnalisation') ? 'active' : '' }}">
-            <i class="bi bi-palette"></i> {{ __('messages.customization') }}
+        <a href="{{ route('admin.settings') }}"
+           class="drawer-nav-link {{ request()->routeIs('admin.settings') ? 'active' : '' }}">
+            <i class="bi bi-gear"></i> {{ __('messages.settings') }}
         </a>
         <a href="{{ route('admin.rapports') }}"
            class="drawer-nav-link {{ request()->routeIs('admin.rapports') ? 'active' : '' }}">
@@ -1074,10 +1070,6 @@ body { background: #0e0a1c !important; color: rgba(255,255,255,.88) !important; 
                class="nav-link {{ request()->routeIs('admin.calendar') ? 'active' : '' }}">
                 <i class="bi bi-calendar3"></i> {{ __('messages.calendar') }}
             </a>
-            <a href="{{ route('admin.infoSalon') }}"
-               class="nav-link {{ request()->routeIs('admin.infoSalon') ? 'active' : '' }}">
-                <i class="bi bi-shop-window"></i> {{ __('messages.salon_info') }}
-            </a>
             <a href="{{ route('admin.heuresOuverture') }}"
                class="nav-link {{ request()->routeIs('admin.heuresOuverture') ? 'active' : '' }}">
                 <i class="bi bi-clock-history"></i> {{ __('messages.hours') }}
@@ -1086,9 +1078,9 @@ body { background: #0e0a1c !important; color: rgba(255,255,255,.88) !important; 
                class="nav-link {{ request()->routeIs('admin.inventaire') ? 'active' : '' }}">
                 <i class="bi bi-box-seam"></i> {{ __('messages.inventory') }}
             </a>
-            <a href="{{ route('admin.personnalisation') }}"
-               class="nav-link {{ request()->routeIs('admin.personnalisation') ? 'active' : '' }}">
-                <i class="bi bi-palette"></i> {{ __('messages.customization') }}
+            <a href="{{ route('admin.settings') }}"
+               class="nav-link {{ request()->routeIs('admin.settings') ? 'active' : '' }}">
+                <i class="bi bi-gear"></i> {{ __('messages.settings') }}
             </a>
             <a href="{{ route('admin.rapports') }}"
                class="nav-link {{ request()->routeIs('admin.rapports') ? 'active' : '' }}">

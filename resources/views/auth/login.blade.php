@@ -162,7 +162,7 @@
             <span class="lg-checkbox"></span>
             <span>{{ __('messages.remember_me') }}</span>
         </label>
-        <a href="#" class="lg-forgot">{{ __('messages.forgot_password') }}</a>
+        <a href="{{ route('password.request') }}" class="lg-forgot">{{ __('messages.forgot_password') }}</a>
     </div>
 
     {{-- Submit --}}

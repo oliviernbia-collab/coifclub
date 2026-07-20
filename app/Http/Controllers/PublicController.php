@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{Service, Employee, Review, Gallery, ContactMessage, Categorie, Favorite, Like};
+use App\Models\{Service, Employee, Review, Gallery, ContactMessage, Categorie, Favorite, Like, Salon};
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -58,7 +58,9 @@ class PublicController extends Controller
 
     public function contact()
     {
-        return view('public.contact');
+        $contactInfo = Salon::first() ?? new Salon();
+
+        return view('public.contact', compact('contactInfo'));
     }
 
     public function submitContact(Request $request)

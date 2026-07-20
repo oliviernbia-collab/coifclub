@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
-@section('title', $salon->name ?? 'Conseils Beauté')
+@section('title', 'Blog Beauté — Marol Hair Braiding')
+@section('meta_description', __('messages.lp_blog_desc'))
 
 @section('content')
 

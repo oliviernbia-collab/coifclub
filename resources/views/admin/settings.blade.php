@@ -1,8 +1,8 @@
 @extends('layouts.admin')
 
-@section('title', __('messages.customization'))
-@section('page-title', __('messages.customization_page_title'))
-@section('page-subtitle', __('messages.customization_page_subtitle'))
+@section('title', __('messages.settings'))
+@section('page-title', __('messages.admin_settings_hero_title'))
+@section('page-subtitle', __('messages.admin_settings_hero_subtitle'))
 
 @push('styles')
 <style>
@@ -120,6 +120,17 @@
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:28px;
+    margin-bottom:28px;
+}
+
+.ps-form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.ps-form-grid .ps-group.full{
+    grid-column:1 / -1;
 }
 
 /* =========================================================
@@ -320,7 +331,8 @@
 
 @media(max-width:992px){
 
-    .ps-grid{
+    .ps-grid,
+    .ps-form-grid{
         grid-template-columns:1fr;
     }
 
@@ -361,15 +373,15 @@
     <div class="ps-hero">
 
         <div class="ps-eyebrow">
-            {{ __('messages.branding_studio') }}
+            {{ __('messages.admin_settings_eyebrow') }}
         </div>
 
         <h1 class="ps-title">
-            {{ __('messages.customization_identity') }}
+            {{ __('messages.admin_settings_hero_title') }}
         </h1>
 
         <p class="ps-subtitle">
-            {{ __('messages.customization_page_description') }}
+            {{ __('messages.admin_settings_hero_subtitle') }}
         </p>
 
     </div>
@@ -382,7 +394,88 @@
         </div>
     @endif
 
-    {{-- GRID --}}
+    {{-- SALON INFORMATION --}}
+    <div class="ps-card" style="margin-bottom:28px;">
+
+        <div class="ps-card-head">
+
+            <div class="ps-card-title">
+                <i class="fas fa-shop"></i>
+                {{ __('messages.salon_info_form_title') }}
+            </div>
+
+            <div class="ps-card-subtitle">
+                {{ __('messages.salon_info_form_sub') }}
+            </div>
+
+        </div>
+
+        <form action="{{ route('admin.salons.status', $salon) }}" method="POST">
+            @csrf
+            @method('PATCH')
+
+            <div class="ps-form-grid">
+
+                {{-- NOM --}}
+                <div class="ps-group">
+                    <label class="ps-label">{{ __('messages.salon_info_field_name') }}</label>
+                    <input
+                        type="text"
+                        name="name"
+                        class="ps-input"
+                        value="{{ old('name', $salon->name) }}"
+                        placeholder="{{ __('messages.salon_info_name_ph') }}"
+                    >
+                </div>
+
+                {{-- TELEPHONE --}}
+                <div class="ps-group">
+                    <label class="ps-label">{{ __('messages.salon_info_field_phone') }}</label>
+                    <input
+                        type="text"
+                        name="phone"
+                        class="ps-input"
+                        value="{{ old('phone', $salon->phone) }}"
+                        placeholder="{{ __('messages.salon_info_phone_ph') }}"
+                    >
+                </div>
+
+                {{-- EMAIL --}}
+                <div class="ps-group">
+                    <label class="ps-label">{{ __('messages.salon_info_field_email') }}</label>
+                    <input
+                        type="email"
+                        name="email"
+                        class="ps-input"
+                        value="{{ old('email', $salon->email) }}"
+                        placeholder="{{ __('messages.salon_info_email_ph') }}"
+                    >
+                </div>
+
+                {{-- ADRESSE --}}
+                <div class="ps-group">
+                    <label class="ps-label">{{ __('messages.salon_info_field_address') }}</label>
+                    <input
+                        type="text"
+                        name="address"
+                        class="ps-input"
+                        value="{{ old('address', $salon->address) }}"
+                        placeholder="{{ __('messages.salon_info_address_ph') }}"
+                    >
+                </div>
+
+            </div>
+
+            <button type="submit" class="ps-btn" style="margin-top:6px;">
+                <i class="fas fa-save"></i>
+                {{ __('messages.salon_info_save_btn') }}
+            </button>
+
+        </form>
+
+    </div>
+
+    {{-- BRANDING GRID --}}
     <div class="ps-grid">
 
         {{-- LOGO --}}

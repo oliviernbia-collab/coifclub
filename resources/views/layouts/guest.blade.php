@@ -580,42 +580,42 @@
                         <img src="{{ asset('images/C34.jpg') }}" alt="Marol Hair Braiding">
                     </div>
                     <div>
-                        <div class="panel-brand-name">Marol Hair <em>Braiding</em></div>
-                        <div class="panel-brand-tag">Luxury Braiding · Chicago</div>
+                        <div class="panel-brand-name">{{ __('messages.auth_brand_first') }} <em>{{ __('messages.auth_brand_em') }}</em></div>
+                        <div class="panel-brand-tag">{{ __('messages.auth_panel_tag') }}</div>
                     </div>
                 </div>
 
                 <h2 class="panel-headline">
-                    Luxury Braiding<br>
-                    <strong>Experience</strong>
+                    {{ __('messages.auth_panel_headline_1') }}<br>
+                    <strong>{{ __('messages.auth_panel_headline_2') }}</strong>
                 </h2>
 
                 <p class="panel-sub">
-                    Réservez vos prestations en ligne, gérez vos rendez-vous et découvrez nos tresseuses certifiées.
+                    {{ __('messages.auth_panel_sub') }}
                 </p>
 
                 <div class="panel-features">
                     <div class="pf-item">
                         <div class="pf-check"><i class="fa-solid fa-check"></i></div>
-                        Réservation en ligne 24h/24
+                        {{ __('messages.auth_feature_1') }}
                     </div>
                     <div class="pf-item">
                         <div class="pf-check"><i class="fa-solid fa-check"></i></div>
-                        Plus de 50 prestations disponibles
+                        {{ __('messages.auth_feature_2') }}
                     </div>
                     <div class="pf-item">
                         <div class="pf-check"><i class="fa-solid fa-check"></i></div>
-                        Artistes certifiés &amp; expérimentés
+                        {{ __('messages.auth_feature_3') }}
                     </div>
                     <div class="pf-item">
                         <div class="pf-check"><i class="fa-solid fa-check"></i></div>
-                        Rappels automatiques par email
+                        {{ __('messages.auth_feature_4') }}
                     </div>
                 </div>
 
                 <div class="panel-rating">
                     <span class="panel-stars">★★★★★</span>
-                    <span class="panel-rating-text">4.9 · Plus de 200 avis clients</span>
+                    <span class="panel-rating-text">{{ __('messages.auth_rating_text') }}</span>
                 </div>
 
             </div>
@@ -630,8 +630,8 @@
                     <div class="brand-icon">
                         <img src="{{ asset('images/C34.jpg') }}" alt="Marol Hair Braiding">
                     </div>
-                    <h1 class="brand-name">Marol Hair <em>Braiding</em></h1>
-                    <p class="brand-tagline">Luxury Braiding Salon · Chicago</p>
+                    <h1 class="brand-name">{{ __('messages.auth_brand_first') }} <em>{{ __('messages.auth_brand_em') }}</em></h1>
+                    <p class="brand-tagline">{{ __('messages.auth_card_tagline') }}</p>
                     <div class="brand-rule">✦</div>
                 </div>
 
@@ -641,7 +641,7 @@
                 {{-- Security badge --}}
                 <div class="auth-secure">
                     <i class="fa-solid fa-shield-halved"></i>
-                    Connexion sécurisée · Données chiffrées SSL
+                    {{ __('messages.auth_secure_text') }}
                 </div>
 
             </div>

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', __('messages.gallery') . ' — Marol Hair Braiding')
+@section('meta_description', __('messages.home_gal_subtitle'))
 
 @section('content')
 
